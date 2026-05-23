@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>救援舱扫描 / Final Rescue OS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page page-form">
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换主题" title="切换深色/浅色模式">☀</button>
+  <div class="noise"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <button class="ghost-button" id="backBtn" type="button">← 返回</button>
+      <div class="step-indicator" aria-label="扫描进度">
+        <span class="dot active" data-dot="1"></span>
+        <span class="dot" data-dot="2"></span>
+        <span class="dot" data-dot="3"></span>
+        <span class="dot" data-dot="4"></span>
+        <span class="dot" data-dot="5"></span>
+        <b id="stepText">SCAN 01 / 05</b>
+      </div>
+    </header>
+
+    <form id="studyForm" class="scan-card reveal" novalidate>
+      <section class="form-step is-active" data-step="1">
+        <p class="eyebrow">SCAN 01 / 考试范围</p>
+        <h2>先锁定战场范围。</h2>
+        <div class="option-grid three scan-options" data-field="scope">
+          <button type="button" class="option-card selected" data-value="upper">上册</button>
+          <button type="button" class="option-card" data-value="lower">下册</button>
+          <button type="button" class="option-card" data-value="both">上下册</button>
+        </div>
+        <p class="scan-hint" id="scanHint">正在识别最危险章节...</p>
+        <button type="button" class="primary-button full next-step">下一项扫描</button>
+      </section>
+
+      <section class="form-step" data-step="2">
+        <p class="eyebrow">SCAN 02 / 剩余时间</p>
+        <h2>你离考试还剩几天？</h2>
+        <label class="number-field big-number">
+          <input id="daysInput" type="number" min="1" max="30" value="7" inputmode="numeric" />
+          <span>天</span>
+        </label>
+        <p class="scan-hint">正在计算生还概率...</p>
+        <button type="button" class="primary-button full next-step">下一项扫描</button>
+      </section>
+
+      <section class="form-step" data-step="3">
+        <p class="eyebrow">SCAN 03 / 当前水平</p>
+        <h2>现在的你，真实状态是哪一种？</h2>
+        <div class="list-options" data-field="level">
+          <button type="button" class="list-option selected" data-value="A"><b>A</b><span>课本基本没打开，完全不会</span></button>
+          <button type="button" class="list-option" data-value="B"><b>B</b><span>上课有去，但还没系统复习</span></button>
+          <button type="button" class="list-option" data-value="C"><b>C</b><span>复习过一些，有印象但不稳</span></button>
+          <button type="button" class="list-option" data-value="D"><b>D</b><span>基本掌握，需要查漏补缺</span></button>
+        </div>
+        <p class="scan-hint">正在判断是否需要放弃部分内容...</p>
+        <button type="button" class="primary-button full next-step">下一项扫描</button>
+      </section>
+
+      <section class="form-step" data-step="4">
+        <p class="eyebrow">SCAN 04 / 每日可用时间</p>
+        <h2>每天最多能投入几小时？</h2>
+        <div class="option-grid hours scan-options" data-field="hours">
+          <button type="button" class="option-card" data-value="1">1h</button>
+          <button type="button" class="option-card selected" data-value="2">2h</button>
+          <button type="button" class="option-card" data-value="3">3h</button>
+          <button type="button" class="option-card" data-value="4">4h</button>
+          <button type="button" class="option-card" data-value="5">5h+</button>
+        </div>
+        <p class="scan-hint">正在压缩今日任务...</p>
+        <button type="button" class="primary-button full next-step">下一项扫描</button>
+      </section>
+
+      <section class="form-step" data-step="5">
+        <p class="eyebrow">SCAN 05 / 老师风格</p>
+        <h2>这门课的出题风格更像？</h2>
+        <div class="list-options" data-field="teacher">
+          <button type="button" class="list-option selected" data-value="A"><b>A</b><span>大量原题，背例题很有用</span></button>
+          <button type="button" class="list-option" data-value="B"><b>B</b><span>严格按 PPT，PPT 就是答案</span></button>
+          <button type="button" class="list-option" data-value="C"><b>C</b><span>喜欢综合题，题型比较灵活</span></button>
+          <button type="button" class="list-option" data-value="D"><b>D</b><span>不知道，没有往届参考</span></button>
+        </div>
+        <p class="scan-hint">正在打开上岸通道...</p>
+        <button type="submit" class="primary-button full submit-glow">生成我的期末救援舱</button>
+      </section>
+    </form>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

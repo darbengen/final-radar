@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>Final Rescue OS / 期末救援舱</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body class="page page-home">
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换主题" title="切换深色/浅色模式">☀</button>
+  <div class="noise"></div>
+
+  <main class="shell home-shell">
+    <section class="hero-panel reveal">
+      <div class="brand-row">
+        <span class="brand-mark">FR</span>
+        <span class="brand-name">Final Rescue OS</span>
+      </div>
+      <p class="eyebrow">期末救援舱已待命</p>
+      <h1>别复习了，先判断你还能怎么上岸。</h1>
+      <p class="hero-copy">5 个问题，生成你的期末救援身份、今日任务、放弃清单和章节作战地图。</p>
+      <div class="hero-actions">
+        <a class="primary-button magnetic" href="form.html">启动救援舱 <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="mission-preview reveal delay-1" aria-label="救援舱预览">
+      <div class="mission-screen">
+        <div class="screen-header">
+          <span>RESCUE PASS</span>
+          <b>91</b>
+        </div>
+        <div class="screen-grid">
+          <div>
+            <small>Survival Type</small>
+            <strong>极限救火型</strong>
+          </div>
+          <div>
+            <small>Today</small>
+            <strong>3 Tasks</strong>
+          </div>
+        </div>
+        <div class="scan-strip"><i></i></div>
+        <div class="map-preview">
+          <span class="danger">必救区</span>
+          <span class="score">抢分区</span>
+          <span class="skip">放弃区</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">Final Rescue OS / 期末救援舱</footer>
+  <script src="js/config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

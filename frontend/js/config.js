@@ -1,9 +1,16 @@
-// 自动检测环境：本地开发 → localhost:8000，部署 → 相对路径（后端同时提供前端静态文件）
+// 自动检测环境：
+//   本地开发 → localhost:8000
+//   Railway 部署 → 前后端同域，相对路径
+//   GitHub Pages → 连 Railway 后端
 const API_BASE_URL = (() => {
   const host = window.location.hostname;
   if (!host || host === 'localhost' || host === '127.0.0.1' || host === '0.0.0.0') {
     return 'http://localhost:8000';
   }
-  // 部署后前后端同域（FastAPI 直接 serve 前端），用相对路径即可
+  if (host.includes('github.io')) {
+    // GitHub Pages 前端 + Railway 后端
+    return 'https://final-radar.up.railway.app';
+  }
+  // Railway / 自定义域名 → 前后端同域（FastAPI serve 前端）
   return '';
 })();

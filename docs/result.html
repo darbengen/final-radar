@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <title>期末救援舱 / Final Rescue OS</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body class="page page-result">
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换主题" title="切换深色/浅色模式">☀</button>
+  <div class="noise"></div>
+
+  <main class="result-shell">
+    <header class="result-hero reveal">
+      <div>
+        <p class="eyebrow">Final Rescue OS</p>
+        <h1>你的高数考前急救路线</h1>
+      </div>
+      <button class="ghost-button" id="restartBtn" type="button">重新诊断</button>
+    </header>
+
+    <!-- 紧凑状态条 -->
+    <section id="identitySection" class="reveal delay-1"></section>
+
+    <!-- Dashboard 左右布局 -->
+    <div class="result-dashboard">
+      <div class="dashboard-main">
+
+        <!-- 复习路线总览 -->
+        <section id="roadmapSection" class="reveal delay-1"></section>
+
+        <!-- 今日任务：第一屏核心 -->
+        <section id="todaySection" class="reveal delay-1"></section>
+
+        <!-- 每日计划：折叠 -->
+        <section id="dailyPlanSection" class="reveal delay-2">
+          <div class="result-card">
+            <details class="collapsible-section" id="dailyPlanDetails">
+              <summary class="collapsible-summary">
+                <div class="section-title" style="margin-bottom:0"><span>02</span><h2>接下来几天怎么安排</h2></div>
+                <span class="collapse-icon" aria-hidden="true">▼</span>
+              </summary>
+              <div id="dailyPlan" class="timeline"></div>
+            </details>
+          </div>
+        </section>
+
+        <!-- 章节地图 -->
+        <section id="chapterSection" class="reveal delay-2"></section>
+
+        <!-- 配套练习题：默认折叠 -->
+        <section id="problemSectionWrapper" class="reveal delay-3">
+          <div class="result-card">
+            <details class="collapsible-section" id="problemBankDetails">
+              <summary class="collapsible-summary">
+                <div class="section-title" style="margin-bottom:0"><span>04</span><h2>配套练习题</h2></div>
+                <span class="collapse-icon" aria-hidden="true">▼</span>
+              </summary>
+              <div id="problemSection"></div>
+            </details>
+          </div>
+        </section>
+
+      </div><!-- .dashboard-main -->
+
+      <aside class="dashboard-side">
+
+        <!-- 紧迫指数面板 -->
+        <section id="urgencyPanel" class="result-card reveal delay-1">
+          <h3 class="sidebar-heading">紧迫指数</h3>
+          <div id="urgencyPanelContent"></div>
+        </section>
+
+        <!-- 推荐依据 -->
+        <section id="rationaleSection" class="result-card reveal delay-1">
+          <h3 class="sidebar-heading">为什么系统这样安排</h3>
+          <div id="rationaleContent"></div>
+        </section>
+
+        <!-- 复习策略：合并 dont + advice + emergency -->
+        <section id="strategySection" class="result-card reveal delay-2">
+          <h3 class="sidebar-heading">复习策略</h3>
+          <div id="strategyContent"></div>
+        </section>
+
+        <!-- 考前必须记住的 -->
+        <section id="memorizeSection" class="result-card reveal delay-2">
+          <h3 class="sidebar-heading">考前必须记住的</h3>
+          <div id="memorizeBox" class="memorize-grid"></div>
+        </section>
+
+      </aside><!-- .dashboard-side -->
+    </div><!-- .result-dashboard -->
+
+    <!-- 底部更多区域 -->
+    <section id="moreSection" class="more-area reveal delay-3">
+      <div class="more-grid">
+        <div class="more-card" id="shareCard"></div>
+        <div class="more-card" id="historyCard"></div>
+        <div class="more-card" id="feedbackCard"></div>
+      </div>
+      <div class="bottom-actions">
+        <button class="secondary-button" id="copyBtn" type="button">复制计划 JSON</button>
+        <button class="primary-button" id="printBtn" type="button">保存 / 打印计划</button>
+      </div>
+    </section>
+
+    <!-- Hidden: advice data target (used by renderStrategy) -->
+    <div id="adviceBox" style="display:none"></div>
+
+    <!-- Hidden: mission complete feedback container -->
+    <div id="missionCompleteFeedback"></div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
